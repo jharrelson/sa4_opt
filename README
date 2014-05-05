@@ -1,0 +1,50 @@
+CPSC 3300 - Spring 2014 - Project 3 Assignment
+
+[example added on 4/18]
+
+  Due date:         Friday, April 25, by midnight
+  Grading standard: OPT replacement correctness 100%
+  Submission:       use https://handin.cs.clemson.edu/
+
+  This is to be an individual programming assignment.
+
+
+Your assignment is to modify the cache simulator
+
+  /web/home/mark/public_html/330/sa4_4kb_pl.c
+
+to use OPT replacement so that we can compare the hit rate between
+pseudo-LRU and OPT.
+
+The trace size will be limited to 1000 or fewer address references.
+
+Any code should be written totally by yourself, but you may discuss
+the project requirements and the concepts with anyone in class.
+
+Algorithms for OPT will be discussed in class. You may also consult
+web resources, however, you must document any web sources in the
+header comment with a citation and description of the extent your
+program represents the sources. Direct copying of code from the web
+without attribution is plagiarism, and direct copying even with
+attribution will not receive full credit.
+
+Turn in your program using the handin web site (see URL above). You
+should turn in the plaintext copy of the source file(s). Please do
+not tar or otherwise compress the program source.
+
+
+Example
+
+Using the input file /web/home/mark/public_html/330/sc1000.addrs
+
+[] gcc -Wall sa4_4kb_pl.c
+[] ./a.out < sc1000.addrs
+72 misses of 1000 references (92.80% hit rate)
+[] gcc -Wall sa4_opt.c
+[] ./a.out < sc1000.addrs
+56 misses of 1000 references (94.40% hit rate)
+
+Remember that OPT is scanning the future address references in terms
+of their cache block referencing and does not need to distinguish
+down to the word or byte address (since any address that references
+a current cache block will be a hit).
